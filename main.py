@@ -1,4 +1,4 @@
-from exeptions import InvalidRequest, BaseError, InvalidStorageName
+from exeptions import InvalidRequest, InvalidStorageName, NotEnoughProduct, NotEnoughSpace
 from prog.courier import Courier
 from prog.request import Request
 from prog.shop import Shop
@@ -46,8 +46,10 @@ def main():
 
         try:
             courier.move()
-        except BaseError as error:
+        except NotEnoughProduct as error:
             print(error.message)
+        except NotEnoughSpace as error:
+            print(f"{error.message} in {request.destination}")
             courier.cancel()
 
 

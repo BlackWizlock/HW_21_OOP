@@ -17,5 +17,8 @@ class TooManyDifferentProducts(BaseError):
 class InvalidRequest(BaseError):
     message = 'Invalid request'
 
+
 class InvalidStorageName(BaseError):
     message = 'Invalid storage name'
+
+
